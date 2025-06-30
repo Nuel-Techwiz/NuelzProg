@@ -1,0 +1,274 @@
+ body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+        }
+header{
+            background: #e64a19;
+            color: white;
+            padding: 20px;
+        }
+header h1{
+        color: #e64a19;
+        text-decoration: underline;
+    }
+header h1 span{
+        text-shadow: 0 4px 6px rgba(231, 96, 6, 0.1);
+        font-size: 35px;
+        font-family:emoji ;
+    }
+.Welcome{
+        background: #eee;
+        height: 60px;
+        text-align: center;
+        width: 40%;
+         border: 1px solid white;
+        border-radius: 50px;
+    }
+nav{
+        background: #333;
+        overflow: auto;
+    }
+nav ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+nav ul li{
+        flex: 1;
+    }
+nav ul li a{
+        display: block;
+        padding: 14px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+    }
+nav ul li a:hover{
+        background: black;
+        color: #ff5722;
+        transform: translateY(-3px);
+    }
+.SSL-section{
+        display: flex;
+        padding: 20px;
+        background: #eee;
+    }
+.search-bar{
+        width: 90%;
+            
+    }
+.search-bar input{
+        text-align: center;
+        width: 50%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid;
+        border-color:  #e64a19;
+        border-radius: 50px;
+    }
+.search-btn{
+     background-color: #e64a19;
+            padding: 15px 20px;
+            margin: 10px 0;
+            color: #eee;
+            border: none;
+            border-radius: 15px;
+             border: none;
+            font: 1.2em;
+            cursor: pointer;
+}
+.search-btn:hover{
+    background-color: #ff5722;
+}
+.Login-btn {
+     background-color: #e64a19;
+            padding: 15px 20px;
+            margin: 10px;
+            color: #eee;
+            border: none;
+            border-radius: 10px;
+             border: none;
+            font: 1.2em;
+            cursor: pointer;
+        }
+.Login-btn:hover{
+            background: #ff5722;
+        }
+.Signup-btn{
+              background-color: #333;
+            padding: 15px 20px;
+            margin: 10px;
+            color: #eee;
+            border: none;
+            border-radius: 10px;
+             border: none;
+            font: 1.2em;
+            cursor: pointer;
+        }
+.Signup-btn:hover{
+    background-color: #575757;
+}
+.Fave{
+    text-align: center;
+    font: 1.4em;
+    color: #e64a19;
+    font-family: emoji;
+}
+#menu{
+    display:flex ;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+.food-item{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0, 0, 0.1);
+    width: 50%;
+}
+.Exp{
+    color: #575757;
+    font-family: emoji;
+}
+.food-item img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.food-item h3{
+    margin: 15px 0;
+    color: #e64a19;
+}
+.food-item p{
+    margin: 15px 0;
+    color: #575757;
+    font-family: emoji;
+}
+.food-item:hover{
+    transform: translateY(-5px);
+}
+        .container{
+            padding: 20px;
+        }
+        .section{
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, textarea,select{
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+.PO{
+            background: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+.PO:hover{
+            background: #e64a19;
+        }
+.popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+      z-index: 10; /* Ensure it's above other content */
+    }
+
+.popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 450px;
+      transform: translate(-50%, -50%);
+      background-color: #333;
+      color: #f8f8f8;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+.popup button{
+          background-color: #e64a19;
+            padding: 15px 20px;
+            margin: 10px;
+            color: #eee;
+            border: none;
+            border-radius: 10px;
+             border: none;
+            font: 1.2em;
+            cursor: pointer;
+    }
+.popup button:hover{
+    color: white;
+}
+.popup input{
+        background-color: #969696;
+     }
+.popup textarea{
+     background-color: #969696;
+}
+#FeedBtn{
+     background-color: #e64a19;
+            padding: 15px 20px;
+            margin: 10px;
+            color: #eee;
+            border: none;
+            border-radius: 10px;
+             border: none;
+            font: 1.2em;
+            cursor: pointer;
+}
+.LastSection{
+    width: 100%;
+    background-color: #eee;
+    display: flex;
+    float: inline-end; 
+    padding: 10px;
+    font-family: emoji; 
+    color: #575757;
+}
+.LastSection div{
+    margin: 25px;
+}
+.LastSection a{
+    text-decoration: none;
+    color: #575757;
+    font-size: 1.3em;
+}
+.LastSection a:hover{
+    color: #e64a19;
+    text-decoration: underline;
+}
+.LastSection ul{
+    padding: 10px;
+    list-style-type: none;
+}
+.LastSection ul li{
+    padding: 10px;
+}
+.LastBtn{
+    margin-left: 60px;
+}
+footer{
+            background: #575757;
+            color: white;
+            padding: 10px;
+            font-family: emoji;
+        }
+footer p {
+            padding-top: 10px;
+        }

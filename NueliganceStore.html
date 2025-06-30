@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NueliganceStore</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .Header{
+            top: 0;
+            display: flex;
+            height: 60px;
+            width: 100%;
+            padding:10px;
+            position: fixed;
+            background-color: white;
+            border-bottom: 1px solid gray;
+            z-index: 2;
+        }
+        .NStoreLogo{
+            width: 350px;
+            display: flex;
+            padding: 20px;
+        }
+        .N{
+            margin-right: 25px;
+            color: gray;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size:30px;
+        }
+        .Store{
+            color: lightgreen;
+        }
+        .NStoreLogo a{
+            text-decoration: none;
+            color: gray;
+        }
+        .NStoreLogo svg{
+            margin-right: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .NStoreLogo select{
+            border: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.1em;
+            color: gray;
+            cursor: pointer;
+        }
+        .NStore-Address button{
+            border: none;
+            background-color: inherit;
+            font-family: inherit;
+            font-size: 14px;
+            color: #575757;
+            padding: 0;
+            cursor: pointer;
+        }
+        .Search{
+            display: inherit;
+            justify-content: right;
+            flex-flow: row;
+            flex: 1;
+            padding: 15px;
+        }
+        .Search input{
+            width: 320px;
+            height: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.1em;
+            margin-right: 20px;
+            color: gray;
+            border: none;
+            background-color: inherit;
+            padding-top: 10px;
+        }
+        .SearchInput:focus{
+            outline: none;
+        }
+        
+        .AllSearch{
+            background-color: rgb(222, 243, 230);
+            margin-right: 20px;
+            height: 40px;
+            border-radius: 5px;
+        }
+        .SearchBtn{
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+        }
+        .CT{
+            width: 50px;
+            padding: 5px;
+            background-color: rgb(222, 243, 230);
+            border: none;
+            border-radius: 22px;
+            cursor: pointer;
+        }
+        .US{
+             width: 50px;
+            padding: 5px;
+            background-color: rgb(222, 243, 230);
+            border: none;
+            border-radius: 22px;
+            cursor: pointer;
+        }
+        .ExploreCart{
+            margin-top: 120px;
+            margin-left: 25px;
+            margin-bottom: 20px;
+            color: gray;
+            font-size: x-large;
+        }
+        .CartegoriesItems{
+            display: flex;
+            color: gray;
+            margin-left:25px ;
+        }
+        .CartegoriesItems img{
+            padding-top: 20px;
+            width: 40%; 
+            height: 30%; 
+            color: inherit;
+        }
+        .Cartegory1{
+            background-color: rgba(255, 170, 201, 0.25);
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Cartegory2{
+            background-color: rgb(255, 243, 237);
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Cartegory3{
+            background-color: rgb(235, 244, 255);
+            border: 2px solid transparent;
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Cartegory4{
+            background-color: rgba(2, 194, 127, 0.137);
+            border: 2px solid transparent;
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Cartegory5{
+            background-color: rgb(255, 248, 228);
+            border: 2px solid transparent;
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Cartegory6{
+            background-color: #daefe3;
+            border: 2px solid transparent;
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Cartegory7{
+            background-color: #fff8e4;
+            border: 2px solid transparent;
+            border-radius: 9px;
+            width: 110px; 
+            height: 110px;
+            margin: 30px 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .Shop_GetSection{
+            display: flex; 
+            width: 100%;
+        }
+        .Shop_GetSection a{
+            text-decoration: none;
+            color: white;
+        }
+        .Shop_GetSection h2 ,.Shop_GetSection img{
+            margin-left: 25px;
+        }
+        .Shop_GetSection span{
+            color: lightgreen;
+        }
+        .Shop_NStore{
+            width: 600px; 
+            max-width: 900px; 
+            background-color: rgba(192, 21, 84, 0.918);
+            height:170px; 
+            margin: 35px; 
+            border-radius: 10px; 
+            cursor: pointer;
+        }
+        .Get_NStore{
+            width: 600px; max-width: 900px; 
+            background-color: rgb(28, 71, 28); 
+            height: 170px; 
+            margin: 35px; 
+            border-radius: 10px; 
+            cursor: pointer;
+        }
+        .map{
+            text-align: center;
+            margin: 35px;
+            padding: 16px;
+            color: gray;
+            height: 600px;
+        }
+        .LastSection{
+            width: 100%;
+            background-color: inherit;
+            display: flex;
+            margin: 25px;
+            padding: 10px;
+            font-family: emoji; 
+            color: #575757;
+        }
+        .LastSection span{
+            width: 40%;
+        }
+        .LastSection a{
+            text-decoration: none;
+            color: #575757;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        .LastSection a:hover{
+            color: lightgreen;
+        }
+        .LastSection ul{
+            padding: 0 20px;
+            font-size: 14px;
+            list-style-type: none;
+        }
+        .LastSection ul li{
+            padding: 5px;
+        }
+        .LastSection h2{
+            margin-right: 60px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+            z-index: 10; /* Ensure it's above other content */
+            }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 510px;
+            height: 430px;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: black;
+            padding: 30px;
+            font-size: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup input{
+                width: 90%;
+                height: 30px;
+                background-color:rgb(222, 243, 230);
+                padding: 12px;
+                padding-left: 30px;
+                margin-top: 30px;
+                border: none;
+                border-radius: 10px;
+            }       
+        .popup button{
+            position: fixed;
+            top: 20px;
+            left: 500px;
+            width: 40px;
+            height: 40px;
+            background-color: inherit;
+            border: 1px solid black;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        .popup-content svg{
+            position: fixed;
+            top: 120px;
+            left: 40px;
+        }
+        .Aname:focus{
+            outline: none;
+        }
+        .LoginPopup{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+            z-index: 10;
+        }
+        .Login-content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(207, 250, 207, 0.719);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .Login-content h2{
+            font-weight: bold;
+            font-size: 30px;
+            margin: 20px;
+        }
+        .Login-content label{
+            display: block;
+            text-align: center;
+            margin: 10px;
+            color: white;
+            font-size: 20px;
+        }
+        .Login-content input{
+            text-align: center;
+            width: 90%;
+            height: 36px;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-family: inherit;
+        }
+        .Login-content input:focus{
+            outline: none;
+        }
+        .Login-content button{
+              position: fixed;
+            top: 20px;
+            left: 400px;
+            width: 30px;
+            height: 30px;
+            background-color: inherit;
+            border: 1px solid black;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .Login-content a{
+            margin-top: 20px;
+            text-decoration: none;
+            color: #575757;
+        }
+        .Login-content a:hover{
+            text-decoration: underline;
+            color: orangered;
+        }
+        .cart{
+            position: fixed;
+            top: 0;
+            right:-100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+            z-index: 10;
+            transition: 0.4s;
+        }
+        .cart-content{
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 500px;
+            height: 100%;
+            background-color: white;
+            transition: 0.4s;
+            
+        }
+        .cart-content header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10%;
+            border-bottom:0.5px solid gray ;
+        }
+        .cart-content p{
+            font-size: 20px;
+            margin: 0 10px;
+            color: lightgreen;
+        }
+        .cartBtn {
+            cursor: pointer;
+            border: none;
+            background: inherit;
+            font-weight: bolder;
+            font-size: 16px;
+            color: lightgreen;
+            margin: 0 5px;
+        }
+        .Exit{
+            background-color: white;
+            width: 30px;
+            height: 30px;
+            border: 0.3px solid gray;
+            border-radius: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .result-box ul{
+            border-top: 1px solid #999;
+            padding: 0 10px;
+        }
+        .result-box ul li{
+            list-style-type: none;
+            border-radius: 3px;
+            padding: 15px 10px;
+            cursor: pointer;
+        }
+        .result-box ul li:hover{
+            background: #e9f3ff;
+        }
+        .result-box{
+            background: rgb(222, 243, 230);
+            max-height: 200px;
+            overflow-y: scroll;
+        }
+        #menu,#menu2{
+        display:flex ;
+        margin-bottom: 40px;
+        opacity: 0;
+       }
+        .food-item{
+            background-color: white;
+            padding: 20px;
+            border-radius: 17px;
+            box-shadow: 0 4px 6px rgba(0,0, 0, 0.1);
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            color: rgba(192, 21, 84, 0.918);
+            font-weight: bold;
+        }
+        .Exp{
+            color:rgba(192, 21, 84, 0.918);
+            font-family: emoji;
+        }
+        .food-item img{
+            margin-left: 15px;
+            width: 70%;
+            height: auto;
+            border-radius: 8px;
+            
+        }
+        #menu h2{
+            color: rgba(192, 21, 84, 0.918);
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 2.2em;
+        }
+        .food-item h3{
+            margin: 15px 0;
+            color: rgba(192, 21, 84, 0.918);
+        }
+        .food-item p{
+            margin: 15px 0;
+            color: rgba(192, 21, 84, 0.918);
+            font-family: emoji;
+        }
+        .food-item:hover{
+            transform: translateY(-5px);
+        }
+        .Restaurant-content{
+            width: 100%;
+            height: 700px;
+            position: absolute;
+            top: 620px;
+            overflow-y: scroll;
+        }
+        hr{
+            margin: 90px 0;
+        }
+        #Africanmenu , #Africanmenu2{
+            display:flex ;
+            margin-bottom: 40px;
+            opacity: 0;
+        }
+        .Afood-item{
+            background-color: white;
+            padding: 10px;
+            border-radius: 27px;
+            box-shadow: 0 4px 6px rgba(0,0, 0, 0.1);
+            width: 200px;
+            height: fit-content;
+            margin: 20px;
+            color: lightgreen;
+            font-weight: bold;
+            text-align: center;
+        }
+        .Afood-item img{
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        .AfricanMeal-content h2{
+            color: lightgreen;
+            font-size: 1.5em;
+            font-weight: bold;
+            opacity: 0;
+        }
+        .AfricanMeal-content{
+            background-color: #b8b2b2c4;
+            width: 100%;
+            height: 700px;
+            position: absolute;
+            top: 620px;
+            overflow-y: scroll;
+            opacity: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="HeadSection" class="HeadSection">
+        <header id="Header" class="Header">
+            <div class="NStoreLogo" id="NStoreLogo">
+                <img src="" alt="">
+                <span class="N" id="N"><a href="NueliganceStore.html">N<span class="Store" id="Store">Store</span></a></span>
+
+                <div class="NStore-Address" id="NStore-Address">
+                 <svg width="12" height="17" class="mr-2" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1.9195e-06C5.21189 
+                        -0.000626077 4.43139 0.152847 3.70315 0.45164C2.97491 0.750433 2.31323 1.18868 1.75595 1.74132C1.19867 2.29395 0.756739 2.95012 0.455435
+                    3.67229C0.154131 4.39446 -0.000631338 5.16846 1.93563e-06 5.95C1.93563e-06 10.4125 6 17 6 17C6 17 12 10.4125 12 5.95C12.0006 5.16846 11.8459
+                    4.39446 11.5446 3.67229C11.2433 2.95012 10.8013 2.29395 10.2441 1.74132C9.68678 1.18868 9.02509 0.750433 8.29685 0.45164C7.56861 0.152847 
+                    6.78811 -0.000626077 6 1.9195e-06ZM6 8.075C5.57618 8.075 5.16188 7.95037 4.80949 7.71687C4.4571 7.48338 4.18245 7.1515 4.02026 6.7632C3.85807 
+                    6.37491 3.81564 5.94764 3.89832 5.53543C3.981 5.12323 4.18509 4.74459 4.48477 4.4474C4.78446 4.15021 5.16628 3.94783 5.58195 3.86583C5.99762
+                    3.78384 6.42848 3.82592 6.82004 3.98676C7.21159 4.14759 7.54626 4.41996 7.78172 4.76941C8.01718 5.11887 8.14286 
+                    5.52972 8.14286 5.95C8.14254 6.51349 7.91667 7.05381 7.51488 7.45225C7.11308 7.8507 6.56822 8.07469 6 8.075Z" fill="#02C27F"></path></svg>
+                    <button onclick="showPopup()">
+                        Enter address 
+                    </button>
+                 </div>
+            </div>
+            
+            <div class="Search" id="Search">
+                <div class="AllSearch" id="AllSearch">
+                    <span class="SearchBtnSpan" id="SearchBtnSpan">
+                        <button type="submit" class="SearchBtn" id="SearchBtn" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z" stroke="#0C513F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path d="M15 15L21 21" stroke="#0C513F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </button>
+                    </span>
+                    <input type="search" name="q" class="SearchInput" id="SearchInput" placeholder="Search Nueligance..." value="">
+                    <!-- The code below is for the search suggestions -->
+                    <div class="result-box">
+                        <!-- This was made to test the view of the suggestions but the main 
+                        suggestion will be created in the JS  -->
+                        <!-- <ul> 
+                            <li>JavaScript</li>
+                            <li>Web Development</li>
+                        </ul> -->
+                    </div>
+            </div>
+                <div class="CT_US" id="CT_US">
+                    <button class="CT" id="CT" onclick="showCart()">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="22" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="17.5" cy="19.5" r="1.5"></circle></svg>
+                    </button>
+                    <button class="US" id="US" onclick="showLogin()">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <h1 class="ExploreCart" id="ExploreCart">Explore Cartegories</h1>
+        <div class="CartegoriesItems" id="CartegoriesItems" >
+            <div class="Cartegory1" id="Cartegory1" onclick="ShowResturant()">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Home.webp" alt="Restaurant" id="Restaurant" >
+                <p>Restaurant</p>
+            </div>
+            <div class="Cartegory2" id="Cartegory2">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Basket.webp" alt="" >
+                <p>Supermarket</p>
+            </div>
+            <div class="Cartegory3" id="Cartegory3">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\pharmacy.svg" alt="">
+                <p>Phramacy</p>
+            </div>
+            <div class="Cartegory4" id="Cartegory4">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\local-market.svg" alt="">
+                <p>Local Markets</p>
+            </div>
+            <div class="Cartegory5" id="Cartegory5" onclick="ShowAfricanM()">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Mel.webp" alt="" >
+                <p>African Meal</p>
+            </div>
+            <div class="Cartegory6" id="Cartegory6">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Fit fam.webp" alt="" >
+                <p>Fit Fam</p>
+            </div>
+            <div class="Cartegory7" id="Cartegory7">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Drinks.webp" alt="" >
+                <p>Drinks</p>
+            </div>
+        </div>
+
+        <section class="Shop_GetSection" id="Shop_GetSection">
+            <div class="Get_NStore" id="Get_NStore">
+                <a href="#">
+                    <h2>Get Exclusive Deals <br>
+                    At <b style="color: #0008049e">N</b><span>Store</span></h2>
+                    <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Price.svg" alt="">
+                </a>
+            </div>
+            <div class="Shop_NStore" id="Shop_NStore">
+                <a href="#">
+                    <h2>Shop With Eligance <br>
+                    At <b style="color: #0008049e">Nueligance</b><span>Store</span></h2>
+                </a>
+            </div>
+            <div style="height: 150px;width: 150px; background-color: white; border-radius: 75px; position: absolute; left: 400px;"></div>
+            <div style="height: 150px;width: 150px; background-color: white; border-radius: 75px; position: absolute; left: 1000px; top: 300px;"></div>
+            <div style="height: 150px;width: 150px; background-color: white; border-radius: 75px; position: absolute; left: 680px; top: 500px;"></div>
+        </section>
+        <div class="content-area">
+             <div class="map" id="map">
+                <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\map.webp" alt="map">
+                <h5>Nothing found here <br>
+                Please try another location</h5>
+             </div>
+             <div class="Restaurant-content" id="Restaurant-content">
+                <section id="menu">
+                    <h2>Restaurant</h2>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\FriedRice.jpeg" height="50px" width="90px" alt="">
+                        <h3>Fried Rice</h3>
+                    </div>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\JollofRice.jpeg"  height="50px" width="90px" alt="">
+                        <h3>Jollof Rice</h3>
+                    </div>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\CoconutRice.jpeg" alt="">
+                        <h3>Coconut Rice</h3>
+                    </div>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\ChineseRice.jpeg" alt="">
+                        <h3>Chinese Rice</h3>
+                    </div>
+
+                </section>
+                <section id="menu2">
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\JollofSpag.jpeg" alt="">
+                        <h3>Jollof Spagatti</h3>
+                    </div>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Spag&Stew.jpeg" alt="">
+                        <h3>Spagetti and Stew</h3>
+                    </div>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Rice&Beans.jpeg" alt="">
+                        <h3>Rice & Beans</h3>
+                    </div>
+                    <div class="food-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\KitchenImages\Yam&Egg.jpeg" alt="">
+                        <h3>Yam & Egg </h3>
+                    </div>
+                </section>
+            
+             </div>
+             <div class="AfricanMeal-content" id="AfricanMeal-content">
+                <h2 id="AfricanHead">Explore African Delicacies</h2>
+                <section id="Africanmenu">
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Afang_Soup.jpg" height="50px" width="90px" alt="">
+                        <h3>Afang Soup</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Amala.jpg"  height="50px" width="90px" alt="">
+                        <h3>Amala</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\banga soup.jpg" alt="">
+                        <h3>Fresh Fish Banga soup</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Bazin.jpg" alt="">
+                        <h3>Bazin</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Bazin.jpg" alt="">
+                        <h3>Bazin</h3>
+                    </div>
+
+                </section>
+                <section id="Africanmenu2">
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Braai_broodjies.jpg" alt="">
+                        <h3>Braai broodjies</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Döner_kebab.jpg" alt="">
+                        <h3>Doner kebab</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Ful_medames.jpg" alt="">
+                        <h3>Ful medames</h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Hertzoggies.jpg" alt="">
+                        <h3>Hertzoggies </h3>
+                    </div>
+                    <div class="Afood-item">
+                        <img src="C:\Users\USER\Desktop\NuelProgects\NueliganceStore\NStoreImages\Jollof_rice.jpg" alt="">
+                        <h3>Jollof rice</h3>
+                    </div>
+                </section>
+             </div>
+        </div>
+        <hr>
+        <div class="LastSection" >
+            <span class="N" id="N"><a href="#" style="font-size: 1.5em;">N<span class="Store" id="Store" style="font-size: 1.3em;">Store</span></a></span>
+            <div>
+                <h2>Location</h2>
+                <ul id="location">
+                <li><a href="#">Ikeja</a></li>
+                <li><a href="#">Barnawa</a></li>
+                <li><a href="#">Gwarimpa</a></li>
+                <li><a href="#">Musin</a></li>
+                <li><a href="#">Kuwba</a></li>
+                <li><a href="#">Westlands</a></li>
+                <li><a href="#">Enugu</a></li>
+                <li><a href="#">Lekki</a></li>
+                <li><a href="#">Owerri</a></li>
+             </ul>
+            </div> 
+            <div>
+                <h2>Download</h2>
+                <ul id="Download">
+                    <li><a href="#">Google Play Store</a></li>
+                    <li><a href="#">IOS App Store</a></li>
+                </ul>
+            </div>
+             <div>
+                <h2>Get Help</h2>
+                <a href="mailto:Igbokweemmanuel39@gmail.com" id="CompEmail">Email</a>
+            </div>
+            <div>
+                <h2>Legal</h2>
+                <ul id="Policy">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+  <div class="popup" id="DeliveryPopup">
+    <div class="popup-content">
+      <h2>Delivery Address</h2>
+      <form>
+        <svg width="12" height="17" class="mr-2" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1.9195e-06C5.21189 
+                        -0.000626077 4.43139 0.152847 3.70315 0.45164C2.97491 0.750433 2.31323 1.18868 1.75595 1.74132C1.19867 2.29395 0.756739 2.95012 0.455435
+                    3.67229C0.154131 4.39446 -0.000631338 5.16846 1.93563e-06 5.95C1.93563e-06 10.4125 6 17 6 17C6 17 12 10.4125 12 5.95C12.0006 5.16846 11.8459
+                    4.39446 11.5446 3.67229C11.2433 2.95012 10.8013 2.29395 10.2441 1.74132C9.68678 1.18868 9.02509 0.750433 8.29685 0.45164C7.56861 0.152847 
+                    6.78811 -0.000626077 6 1.9195e-06ZM6 8.075C5.57618 8.075 5.16188 7.95037 4.80949 7.71687C4.4571 7.48338 4.18245 7.1515 4.02026 6.7632C3.85807 
+                    6.37491 3.81564 5.94764 3.89832 5.53543C3.981 5.12323 4.18509 4.74459 4.48477 4.4474C4.78446 4.15021 5.16628 3.94783 5.58195 3.86583C5.99762
+                    3.78384 6.42848 3.82592 6.82004 3.98676C7.21159 4.14759 7.54626 4.41996 7.78172 4.76941C8.01718 5.11887 8.14286 
+                    5.52972 8.14286 5.95C8.14254 6.51349 7.91667 7.05381 7.51488 7.45225C7.11308 7.8507 6.56822 8.07469 6 8.075Z" fill="#02C27F"></path></svg>
+        <input type="text" class="Aname" name="name" required><br><br>
+        <button type="button" onclick="hidePopup()">x</button>
+      </form>
+    </div>
+  </div>
+  <div id="LoginPopup" class="LoginPopup">
+        <div id="Login-content" class="Login-content">
+            <form>
+                <h2>SignIn</h2>
+                <label for="Username">Username</label>
+                <input type="text" id="Username" placeholder="Username">
+                <label for="Password">Password</label>
+                <input type="password" id="Password" placeholder="Password">
+                <button onclick="hideLogin()">x</button>
+                <a href="#">Don't have an account ?</a>
+            </form>
+        </div>
+  </div>
+  <!-- This is for the cart content when the cart button is clicked a slider swings from 
+   the right side -->
+  <div class="cart" id="cart">
+    <div class="cart-content" id="cart-content">
+        <header>
+            <p class="checkout" id="checkout">checkout</p>
+            <div>
+                <button class="cartBtn">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 4H2v2h2.3l3.28 9a3 3 0 0 0 2.82 2H19v-2h-8.6a1 1 0 0 1-.94-.66L9 13h9.28a2 2 0 0 0 1.92-1.45L22 5.27A1 1 0 0 0 21.27 4 .84.84 0 0 0 21 4zm-2.75 7h-10L6.43 6h13.24z">
+                        </path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="16.5" cy="19.5" r="1.5"></circle>
+                    </svg> 
+                    <span>Cart</span>
+                    <span class="count">0</span>
+                </button>
+                <button class="Exit" onclick="hideCart()">x</button>
+            </div>
+        </header>
+    </div>    
+  </div>
+</div>
+<script>
+            function showPopup() {
+      document.getElementById("DeliveryPopup").style.display = "block";
+    }
+
+    function hidePopup() {
+      document.getElementById("DeliveryPopup").style.display = "none";
+    }
+            function showLogin() {
+      document.getElementById("LoginPopup").style.display = "block";
+    }
+
+    function hideLogin() {
+      document.getElementById("LoginPopup").style.display = "none";
+    }
+    function showCart(){
+        document.getElementById("cart").style.right = "0px";
+        document.getElementById("cart-content").style.right = "0px";
+    }
+     function hideCart(){
+        document.getElementById("cart").style.right = "-100%";
+        document.getElementById("cart-content").style.right = "-100%";
+    }
+
+    // The code below is the JavaScript for the search suggestions
+    let availableKeywords = [ //Create an array of the suggestions you would like to display
+            'HTML',
+            'CSS',
+            'Easy Tutorials',
+            'Web design tutorials',
+            'JavaScript',
+            'Where to learn coding online',
+            'Where to lern web design',
+            'How to create a website'
+        ];
+
+        const resultsBox = document.querySelector(".result-box");
+        const inputBox = document.getElementById('SearchInput');
+
+        inputBox.onkeyup = function(){ //listen for key press,run the function below
+            let result = []; 
+            let input = inputBox.value;
+            if(input.length){
+                result = availableKeywords.filter((keyword)=>{
+                   return keyword.toLowerCase().includes(input.toLowerCase());
+                });
+                console.log(result);
+            }
+            display(result);
+             // to take out the suggestion box if there is no suggestion of what the user
+            // is typing
+            if(!result.length){
+                resultsBox.innerHTML = '';
+            }
+        }
+// To show the search suggestions  on the webpage
+        function display(result){
+            const content = result.map((list)=>{
+                return "<li onclick=selectInput(this)>" + list + "</li>";
+            });
+            resultsBox.innerHTML = "<ul>" + content.join('') + "</ul>";
+        }
+        // To get the clicked suggestion and display in the search field
+        function selectInput(list){
+            inputBox.value = list.innerHTML;
+            resultsBox.innerHTML = '';
+        }
+
+        // This function below helps display the contents for resturant when the icon is
+        //clicked
+        function ShowResturant(){
+            document.getElementById('menu').style.opacity = 1;
+            document.getElementById('menu2').style.opacity = 1;
+            document.getElementById('map').style.opacity = 0;
+            document.getElementById('Cartegory1').style.border = "2px solid rgb(255, 170, 201)";
+            
+        }
+         function ShowAfricanM(){
+            document.getElementById('Africanmenu').style.opacity = 1;
+            document.getElementById('Africanmenu2').style.opacity = 1;
+            document.getElementById('AfricanHead').style.opacity = 1;
+            document.getElementById('map').style.opacity = 0;
+            document.getElementById('Cartegory5').style.border = "2px solid black";
+            
+        }
+</script>
+</body>
+</html>

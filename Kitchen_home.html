@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuelzKitchen</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+        }
+        header{
+            background: #e64a19;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav{
+            background: #333;
+            overflow: auto;
+        }
+        nav ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li{
+            flex: 1;
+        }
+        nav ul li a{
+            display: block;
+            padding: 14px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover{
+            background: #575757;
+        }
+        .search-bar{
+            text-align: center;
+            padding: 20px;
+            background: #eee;
+        }
+        .search-bar input{
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .container{
+            padding: 20px;
+        }
+        .section{
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, textarea,select{
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button{
+            background: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover{
+            background: #e64a19;
+        }
+        footer{
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        h2{
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to NuelzKitchen</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Nigeria</a></li>
+            <li><a href="#">USA</a></li>
+            <li><a href="#">India</a></li>
+            <li><a href="#">Italy</a></li>
+            <li><a href="#">Mexico</a></li>
+        </ul>
+    </nav>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for recipes">
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2>Place Your Order</h2>
+            <form id="orderForm">
+                <label for="food">Select Food:</label>
+                <select  id="food">
+                    <option>Jollof Rice</option>
+                    <option>Pizza</option>
+                    <option>Burger</option>
+                    <option>Tacos</option>
+                    <option>Spagetti</option>
+                </select>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+
+                <label for="delivery">Delivery Location:</label>
+                <input type="text" id="delivery" placeholder="Enter delivery address">
+
+                <button type="button" onclick="submitOrder()">Place Order</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Chef Details</h2>
+            <p><strong>Name:</strong>chef Nuel</p>
+            <p><strong>Speciality:</strong>African</p>
+            <p><strong>Experience:</strong>15 years</p>
+        </div>
+
+        <div>
+            <h2>customers Feedback</h2>
+            <form id="feedbackForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="feedback">Your Honest Feedback:</label>
+                <textarea id="feedback" rows="4" required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        <div id="feedbackMessages"></div>
+
+     <div class="section">
+        <h2>Contact Information</h2>
+        <p>Email: support@nuelzkitchen.com</p>
+        <p>Phone: +234-810-498-0706</p>
+        <p>Address: 123 b-close,road 11,Abuja</p>
+     </div>
+    </div>
+    <footer>
+        <p>&copy;2025 NuelzKitchen.All rights reserved.</p>
+    </footer>
+
+   <script>
+    function submitOrder(){
+        const food = document.getElementById('food').value;
+        const quantity = document.getElementById('quantity').value;
+        const location = document.getElementById('delivery').value;
+        if(location.trim()===''){
+            alert('please enter a delievery location');
+        }else{
+            alert(`Order placed: ${quantity} x ${food} to ${location}`)
+        }
+    }
+    document.getElementById('feedbackForm').addEventListener('submit',function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const feedback = document.getElementById('feedback').value.trim();
+        if(name && feedback){
+            const msg = document.createElement('p');
+            msg.textContent = `${name} says: ${feedback}`;
+            document.getElementById('feedbackMessages').appendChild(msg);
+            this.reset();
+        }
+    })
+   </script>
+</body>
+</html>
